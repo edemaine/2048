@@ -59,10 +59,28 @@ GameManager.prototype.setup = function () {
 };
 
 // Set up the initial tiles to start the game with
+var startConfig = [
+  {x: 0, y: 1, tile: 128},
+  {x: 1, y: 1, tile: 1024},
+  {x: 0, y: 2, tile: 1024},
+  {x: 1, y: 2, tile: 16},
+  {x: 2, y: 2, tile: 32},
+  {x: 3, y: 2, tile: 64},
+  {x: 0, y: 3, tile: 1},
+  {x: 1, y: 3, tile: 2},
+  {x: 2, y: 3, tile: 4},
+  {x: 3, y: 3, tile: 8},
+];
 GameManager.prototype.addStartTiles = function () {
+  for (var i = 0; i < startConfig.length; i++) {
+    var tile = startConfig[i];
+    this.grid.insertTile(new Tile({x: tile.x, y: tile.y}, tile.tile));
+  }
+  /*
   for (var i = 0; i < this.startTiles; i++) {
     this.addRandomTile();
   }
+  */
 };
 
 // Adds a tile in a random position
@@ -180,7 +198,7 @@ GameManager.prototype.move = function (direction) {
   });
 
   if (moved) {
-    this.addRandomTile();
+    //this.addRandomTile();
 
     if (!this.movesAvailable()) {
       this.over = true; // Game over!

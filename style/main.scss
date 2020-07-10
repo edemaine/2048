@@ -37,14 +37,18 @@ body {
 
 .heading {
   @include clearfix;
+  text-align: center;
+}
+.scores-container {
+  display: none;
 }
 
 h1.title {
-  font-size: 80px;
+  font-size: 70px;
   font-weight: bold;
-  margin: 0;
+  margin: 0 1em;
   display: block;
-  float: left;
+  //float: left;
 }
 
 @include keyframes(move-up) {
@@ -342,7 +346,7 @@ hr {
                    #fc5e2e true, // 16
                    #ff3333 true, // 32
                    #ff0000 true, // 64
-                   false true, // 128
+                   #ff6200 true, // 128
                    false true, // 256
                    false true, // 512
                    false true, // 1024
